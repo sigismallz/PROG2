@@ -1,3 +1,2 @@
-** Hallo das ist das Projekt für Redme **
-
-das ist der text fuck lol.
+** HALLO Das ist mein README.md **
+viel spass mit meinem Projekt
