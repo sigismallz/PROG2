@@ -1,17 +1,9 @@
 {
-    "ECTS_information":[
-        "4"
-    ],
-    "ECTS_inovation":[
-        "4"
-    ],
-    "ECTS_main":[
-        "120"
-    ],
-    "ECTS_sozial":[
-        "4"
-    ],
-    "ECTS_ux":[
-        "0"
-    ]
+    "ECTS_absolviert":"15000",
+    "ECTS_information":"3040",
+    "ECTS_sozial":"30330",
+    "ECTS_ux":"40595",
+    "ECT_innovation":"544",
+    "faecher_bestanden":"nein",
+    "semester":"66"
 }

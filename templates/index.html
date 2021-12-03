@@ -3,11 +3,24 @@
 	<head>
 		<meta charset="utf-8">
 		<title>TEST</title>
-		<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='Start.css') }}">
+
 
 	</head>
 	<body>
-		<h1>Hallo und wilkommen zu meinem ECTS Rechner, mein name ist {{name}}</h1>
-		<a href="{{ url_for('test')}}">zu dem Resultat</a>
+
+	<div id="hello" style="padding: 55px;">
+		<div id="welcome">
+		<h1>Hallo und wilkommen zu meinem ECTS Rechner, mein name ist Dominik</h1>
+		</div>
+		<form action="{{ url_for('berechnungen')}}">
+		 <div class="form-group m-3">
+    <input type="submit" class="btn btn-primary" name="button_name" value="Zum Rechner">
+		 </div>
+			 </form>
+	</div>
+
+
 	</body>
 </html>

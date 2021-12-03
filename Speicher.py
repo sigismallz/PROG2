@@ -5,11 +5,11 @@
 import json
 
 
-ECTS_dict = {'ECTS_main': ["120"],
+ECTS_dict = {'ECTS_main': ["60"],
          'ECTS_ux' : ["0"],
          'ECTS_inovation': ["4"],
             "ECTS_information": ["4"],
-            "ECTS_sozial": ["4"] }
+            "ECTS_sozial": ["2"] }
 
 print(ECTS_dict)
 
