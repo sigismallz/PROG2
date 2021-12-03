@@ -8,7 +8,15 @@
 </head>
 <body>
 
-<h2>{{ hurensohn }}</h2>
+<h2>{{ bestanden }}</h2>
+<h2>Du hast im bereich UX bereits {{ ux }} ECTS absolviert</h2>
+<h2>Du brauchst och  {{ ux_need }} weitere ECTS in dieser vertiefung</h2>
+<h2>Du brauchst noch {{ ux_maj }} ECTS um eine Major in dder vertifung Ux zu erhalten</h2>
 
+<form action="{{ url_for('semester_übersicht')}}">
+		 <div class="form-group m-3">
+    <input type="submit" class="btn btn-primary" name="button_name" value="zur Semesterübersicht">
+		 </div>
+			 </form>
 </body>
 </html>
