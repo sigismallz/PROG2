@@ -26,11 +26,38 @@
         "faecher_bestanden":"JA",
         "semester":"2"
     },
-    "ECTS_absolviert":"32",
-    "ECTS_information":"23",
-    "ECTS_sozial":"3",
-    "ECTS_ux":"23",
-    "ECT_innovation":"23",
-    "faecher_bestanden":"",
-    "semester":""
+    "4":{
+        "ECTS_absolviert":"32",
+        "ECTS_information":"23",
+        "ECTS_sozial":"3",
+        "ECTS_ux":"23",
+        "ECT_innovation":"23",
+        "faecher_bestanden":"",
+        "semester":""
+    },
+    "5":{
+        "ECTS_absolviert":"32",
+        "ECTS_information":"23",
+        "ECTS_sozial":"3",
+        "ECTS_ux":"23",
+        "ECT_innovation":"23",
+        "faecher_bestanden":"",
+        "semester":""
+    },
+    "6":{
+        "ECTS_absolviert":"32",
+        "ECTS_information":"23",
+        "ECTS_sozial":"3",
+        "ECTS_ux":"23",
+        "ECT_innovation":"23",
+        "faecher_bestanden":"",
+        "semester":""
+    },
+    "ECTS_absolviert":"12",
+    "ECTS_information":"14",
+    "ECTS_sozial":"14",
+    "ECTS_ux":"41",
+    "ECT_innovation":"41",
+    "faecher_bestanden":"d",
+    "semester":"2"
 }
