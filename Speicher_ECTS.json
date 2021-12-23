@@ -1,63 +1,58 @@
 {
     "1":{
-        "ECTS_absolviert":"23",
-        "ECTS_information":"23",
-        "ECTS_sozial":"23",
-        "ECTS_ux":"32",
-        "ECT_innovation":"23",
-        "faecher_bestanden":"JA",
-        "semester":"3"
+        "ECTS_absolviert":"69",
+        "ECTS_information":"69",
+        "ECTS_innovation":"69",
+        "ECTS_sozial":"69",
+        "ECTS_ux":"69",
+        "ECT_innovation":"69",
+        "faecher_bestanden":"Ja",
+        "semester":"1"
     },
     "2":{
-        "ECTS_absolviert":"23",
-        "ECTS_information":"23",
-        "ECTS_sozial":"23",
-        "ECTS_ux":"32",
-        "ECT_innovation":"23",
-        "faecher_bestanden":"JA",
-        "semester":"3"
+        "ECTS_absolviert":"11",
+        "ECTS_information":"11",
+        "ECTS_innovation":"11",
+        "ECTS_sozial":"11",
+        "ECTS_ux":"11",
+        "faecher_bestanden":"Ja",
+        "semester":"2"
     },
     "3":{
-        "ECTS_absolviert":"23",
-        "ECTS_information":"23",
-        "ECTS_sozial":"23",
-        "ECTS_ux":"32",
-        "ECT_innovation":"23",
-        "faecher_bestanden":"JA",
-        "semester":"2"
+        "ECTS_absolviert":"69",
+        "ECTS_information":"69",
+        "ECTS_innovation":"23",
+        "ECTS_sozial":"69",
+        "ECTS_ux":"69",
+        "ECT_innovation":"69",
+        "faecher_bestanden":"Ja",
+        "semester":"3"
     },
     "4":{
         "ECTS_absolviert":"32",
         "ECTS_information":"23",
+        "ECTS_innovation":"23",
         "ECTS_sozial":"3",
         "ECTS_ux":"23",
-        "ECT_innovation":"23",
         "faecher_bestanden":"",
-        "semester":""
+        "semester":"4"
     },
     "5":{
         "ECTS_absolviert":"32",
         "ECTS_information":"23",
+        "ECTS_innovation":"23",
         "ECTS_sozial":"3",
         "ECTS_ux":"23",
-        "ECT_innovation":"23",
         "faecher_bestanden":"",
-        "semester":""
+        "semester":"5"
     },
     "6":{
         "ECTS_absolviert":"32",
         "ECTS_information":"23",
+        "ECTS_innovation":"23",
         "ECTS_sozial":"3",
         "ECTS_ux":"23",
-        "ECT_innovation":"23",
         "faecher_bestanden":"",
-        "semester":""
-    },
-    "ECTS_absolviert":"12",
-    "ECTS_information":"14",
-    "ECTS_sozial":"14",
-    "ECTS_ux":"41",
-    "ECT_innovation":"41",
-    "faecher_bestanden":"d",
-    "semester":"2"
+        "semester":"6"
+    }
 }

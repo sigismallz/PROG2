@@ -38,27 +38,29 @@ def resultat():
 
     if request.method == "POST":
         if request.form.get("submit_button") == "Senden":
-            faecher_bestanden = request.form["fächer_bestanden"]
             semester = request.form["semester"]
+
+
+            faecher_bestanden = request.form["fächer_bestanden"]
             absolvierte_ECTS = request.form["absolvierte_ECTS"]
             ECTS_sozial = request.form["ECTS_sozial"]
             ECTS_information = request.form["ECTS_information"]
             ECTS_ux = request.form["ECTS_ux"]
             ECTS_innovation = request.form["ECTS_innovation"]
 
-            berechnungen_dict["ECTS_information"] = ECTS_information
-            berechnungen_dict["ECT_innovation"] = ECTS_innovation
-            berechnungen_dict["ECTS_information"] = ECTS_information
-            berechnungen_dict["ECTS_sozial"] = ECTS_sozial
-            berechnungen_dict["ECTS_ux"] = ECTS_ux
-            berechnungen_dict["ECTS_absolviert"] = absolvierte_ECTS
-            berechnungen_dict["semester"] = semester
-            berechnungen_dict["faecher_bestanden"] = faecher_bestanden
+            berechnungen_dict[semester]["ECTS_information"] = ECTS_information
+            berechnungen_dict[semester]["ECTS_innovation"] = ECTS_innovation
+            berechnungen_dict[semester]["ECTS_information"] = ECTS_information
+            berechnungen_dict[semester]["ECTS_sozial"] = ECTS_sozial
+            berechnungen_dict[semester]["ECTS_ux"] = ECTS_ux
+            berechnungen_dict[semester]["ECTS_absolviert"] = absolvierte_ECTS
+            berechnungen_dict[semester]["semester"] = semester
+            berechnungen_dict[semester]["faecher_bestanden"] = faecher_bestanden
 
 
             with open("Speicher_ECTS.json", "w") as f:
                 json.dump(berechnungen_dict, f, indent=4, separators=(",",":"), sort_keys=True)
-            if berechnungen_dict["faecher_bestanden"] == "Ja":
+            if berechnungen_dict[semester]["faecher_bestanden"] == "Ja":
                 bestanden = "Du kannst das Studium normal beenden"
             else:
                 bestanden = "Du kannst das Studium nicht beenden"
@@ -67,8 +69,18 @@ def resultat():
                 json.dump(berechnungen_dict, f, indent=4, separators=(",",":"), sort_keys=True)
                 ux_need = 8-int(ECTS_ux)
                 ux_maj = 20 - int(ECTS_ux)
-    return render_template("Resultat.html", bestanden=bestanden,ux=berechnungen_dict["ECTS_ux"], ux_maj=ux_maj, ux_need=ux_need)
+    return render_template("Resultat.html", bestanden=bestanden,ux=berechnungen_dict[semester]["ECTS_ux"], ux_maj=ux_maj, ux_need=ux_need)
 
+
+@app.route("/semesteruebersicht", methods=["GET", "POST"])
+def semesteruebersicht():
+    b = open("Speicher_ECTS.json")
+    berechnungen_dict = json.load(b)
+    semester_output1 = ()
+    for semester in berechnungen_dict:
+        semester_output2 = ((berechnungen_dict[semester]["semester"], berechnungen_dict[semester]["ECTS_information"], berechnungen_dict[semester]["ECTS_sozial"], berechnungen_dict[semester]["ECTS_ux"], berechnungen_dict[semester]["ECTS_innovation"], berechnungen_dict[semester]["ECTS_absolviert"]), )
+        semester_output1 = semester_output1 + semester_output2
+    return render_template("semester_übersicht.html", daten=semester_output1)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

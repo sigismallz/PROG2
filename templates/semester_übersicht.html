@@ -2,10 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='Resultat.css') }}">
     <title>Title</title>
     hoi schwanz
 </head>
 <body>
-
+<div class="m-5">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <th scope="col">Semester</th>
+        <th scope="col">Information</th>
+        <th scope="col">Sozial</th>
+        <th scope="col">UX</th>
+        <th scope="col">Innovation</th>
+        <th scope="col">Insgesamt</th>
+        </thead>
+        <tbody>
+        {% for semester in daten %}
+        <tr>
+            <td>{{ semester[0] }}</td>
+            <td>{{ semester[1] }}</td>
+            <td>{{ semester[2] }}</td>
+            <td>{{ semester[3] }}</td>
+            <td>{{ semester[4] }}</td>
+            <td>{{ semester[5] }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
