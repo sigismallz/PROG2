@@ -10,10 +10,10 @@
         "semester":"1"
     },
     "2":{
-        "ECTS_absolviert":"11",
-        "ECTS_information":"11",
-        "ECTS_innovation":"11",
-        "ECTS_sozial":"11",
+        "ECTS_absolviert":"15",
+        "ECTS_information":"12",
+        "ECTS_innovation":"9",
+        "ECTS_sozial":"89",
         "ECTS_ux":"11",
         "faecher_bestanden":"Ja",
         "semester":"2"
@@ -30,11 +30,11 @@
     },
     "4":{
         "ECTS_absolviert":"32",
-        "ECTS_information":"23",
-        "ECTS_innovation":"23",
-        "ECTS_sozial":"3",
-        "ECTS_ux":"23",
-        "faecher_bestanden":"",
+        "ECTS_information":"8",
+        "ECTS_innovation":"11",
+        "ECTS_sozial":"4",
+        "ECTS_ux":"8",
+        "faecher_bestanden":"nein",
         "semester":"4"
     },
     "5":{
