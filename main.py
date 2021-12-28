@@ -63,17 +63,17 @@ def resultat():
         #   ux_need = 8-int(ECTS_ux)
         #  ux_maj = 20 - int(ECTS_ux)
 
-
-
-
     return render_template("Resultat.html", bestanden=bestanden, ux=berechnungen_dict[semester]["ECTS_ux"],
                            insgesamt=berechnungen_dict[semester]["ECTS_absolviert"],
                            it=berechnungen_dict[semester]["ECTS_information"],
                            di=berechnungen_dict[semester]["ECTS_innovation"],
                            sm=berechnungen_dict[semester]["ECTS_sozial"],
-                           lel=int(berechnungen_dict[semester]["ECTS_absolviert"]) - (int(berechnungen_dict[semester]["ECTS_ux"])+ int(berechnungen_dict[semester]["ECTS_information"])+int(berechnungen_dict[semester]["ECTS_innovation"])+int(berechnungen_dict[semester]["ECTS_sozial"]))
-)
-
+                           lel=int(berechnungen_dict[semester]["ECTS_absolviert"]) - (
+                                       int(berechnungen_dict[semester]["ECTS_ux"]) + int(
+                                   berechnungen_dict[semester]["ECTS_information"]) + int(
+                                   berechnungen_dict[semester]["ECTS_innovation"]) + int(
+                                   berechnungen_dict[semester]["ECTS_sozial"]))
+                           )
 
 
 @app.route("/semesteruebersicht", methods=["GET", "POST"])
@@ -81,13 +81,29 @@ def semesteruebersicht():
     b = open("Speicher_ECTS.json")
     berechnungen_dict = json.load(b)
     semester_output1 = ()
+
+    it = int(20) - (int(berechnungen_dict["1"]["ECTS_information"]) + int(berechnungen_dict["2"]["ECTS_information"]) + int(berechnungen_dict["3"]["ECTS_information"]) + int(berechnungen_dict["4"]["ECTS_information"]) + int(berechnungen_dict["5"]["ECTS_information"]) + int(berechnungen_dict["6"]["ECTS_information"]))
+    if it < 0:
+        it = 0
+    di = int(20) - (int(berechnungen_dict["1"]["ECTS_innovation"]) + int(berechnungen_dict["2"]["ECTS_innovation"]) + int(berechnungen_dict["3"]["ECTS_innovation"]) + int(berechnungen_dict["4"]["ECTS_innovation"]) + int(berechnungen_dict["5"]["ECTS_innovation"]) + int(berechnungen_dict["6"]["ECTS_innovation"]))
+    if di < 0:
+        di = 0
+    ux = int(20) - (int(berechnungen_dict["1"]["ECTS_ux"]) + int(berechnungen_dict["2"]["ECTS_ux"]) + int(berechnungen_dict["3"]["ECTS_ux"]) + int(berechnungen_dict["4"]["ECTS_ux"]) + int(berechnungen_dict["5"]["ECTS_ux"]) + int(berechnungen_dict["6"]["ECTS_ux"]))
+    if ux < 0:
+        ux = 0
     for semester in berechnungen_dict:
         semester_output2 = ((berechnungen_dict[semester]["semester"], berechnungen_dict[semester]["ECTS_information"],
                              berechnungen_dict[semester]["ECTS_sozial"], berechnungen_dict[semester]["ECTS_ux"],
                              berechnungen_dict[semester]["ECTS_innovation"],
                              berechnungen_dict[semester]["ECTS_absolviert"]),)
         semester_output1 = semester_output1 + semester_output2
-    return render_template("semester_übersicht.html", daten=semester_output1)
+    return render_template("semester_übersicht.html", daten=semester_output1,
+                           insgesamt=int(180) - (int(berechnungen_dict["1"]["ECTS_absolviert"]) + int(berechnungen_dict["2"]["ECTS_absolviert"]) + int(berechnungen_dict["3"]["ECTS_absolviert"]) + int(berechnungen_dict["4"]["ECTS_absolviert"]) + int(berechnungen_dict["5"]["ECTS_absolviert"]) + int(berechnungen_dict["6"]["ECTS_absolviert"])),
+                           it=it,
+                           di=di,
+                           ux=ux
+
+                           )
 
 
 if __name__ == "__main__":
