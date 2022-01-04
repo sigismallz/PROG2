@@ -18,30 +18,30 @@
         "semester":"2"
     },
     "3":{
-        "ECTS_absolviert":"12",
-        "ECTS_information":"6",
-        "ECTS_innovation":"4",
-        "ECTS_sozial":"12",
-        "ECTS_ux":"3",
-        "faecher_bestanden":"Ja",
+        "ECTS_absolviert":"11",
+        "ECTS_information":"0",
+        "ECTS_innovation":"0",
+        "ECTS_sozial":"0",
+        "ECTS_ux":"0",
+        "faecher_bestanden":"Nein",
         "semester":"3"
     },
     "4":{
-        "ECTS_absolviert":"0",
+        "ECTS_absolviert":"11",
         "ECTS_information":"0",
         "ECTS_innovation":"0",
         "ECTS_sozial":"0",
         "ECTS_ux":"0",
-        "faecher_bestanden":"Ja",
+        "faecher_bestanden":"Nein",
         "semester":"4"
     },
     "5":{
-        "ECTS_absolviert":"0",
+        "ECTS_absolviert":"11",
         "ECTS_information":"0",
         "ECTS_innovation":"0",
         "ECTS_sozial":"0",
         "ECTS_ux":"0",
-        "faecher_bestanden":"Ja",
+        "faecher_bestanden":"Nein",
         "semester":"5"
     },
     "6":{
