@@ -44,5 +44,11 @@
 <h3> Du benötigtst noch {{ ux_1 }} ECTS  der Vertiefung User Experience umd dein Studium beenden zu können. </h3>
 <h3> Du benötigtst noch {{ sz }} ECTS  der Vertiefung Sozial- und Methodenkompetenz umd dein Studium beenden zu können. </h3>
 
+<form action="{{ url_for('plotly')}}">
+		 <div class="form-group m-3">
+    <input type="submit" class="btn btn-primary" name="button_name" value="Zur Visualisierung">
+		 </div>
+			 </form>
+
     </body>
 </html>
