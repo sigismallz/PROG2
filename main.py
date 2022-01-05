@@ -6,8 +6,57 @@ from flask import request
 app = Flask("Hello World")
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def hello_world():
+    b = open("Speicher_ECTS.json")
+    berechnungen_dict = json.load(b)
+    if request.method == "POST":
+        #ermöglicht das Zurücksetzen des json Dictionary
+        if request.form.get("button_name") == "Resultate Zurücksetzen":
+            berechnungen_dict["1"]["ECTS_absolviert"] = "0"
+            berechnungen_dict["1"]["ECTS_information"] = "0"
+            berechnungen_dict["1"]["ECTS_innovation"] = "0"
+            berechnungen_dict["1"]["ECTS_sozial"] = "0"
+            berechnungen_dict["1"]["ECTS_ux"] = "0"
+            berechnungen_dict["1"]["faecher_bestanden"] = "Ja"
+
+            berechnungen_dict["2"]["ECTS_absolviert"] = "0"
+            berechnungen_dict["2"]["ECTS_information"] = "0"
+            berechnungen_dict["2"]["ECTS_innovation"] = "0"
+            berechnungen_dict["2"]["ECTS_sozial"] = "0"
+            berechnungen_dict["2"]["ECTS_ux"] = "0"
+            berechnungen_dict["2"]["faecher_bestanden"] = "Ja"
+
+            berechnungen_dict["3"]["ECTS_absolviert"] = "0"
+            berechnungen_dict["3"]["ECTS_information"] = "0"
+            berechnungen_dict["3"]["ECTS_innovation"] = "0"
+            berechnungen_dict["3"]["ECTS_sozial"] = "0"
+            berechnungen_dict["3"]["ECTS_ux"] = "0"
+            berechnungen_dict["3"]["faecher_bestanden"] = "Ja"
+
+            berechnungen_dict["4"]["ECTS_absolviert"] = "0"
+            berechnungen_dict["4"]["ECTS_information"] = "0"
+            berechnungen_dict["4"]["ECTS_innovation"] = "0"
+            berechnungen_dict["4"]["ECTS_sozial"] = "0"
+            berechnungen_dict["4"]["ECTS_ux"] = "0"
+            berechnungen_dict["4"]["faecher_bestanden"] = "Ja"
+
+            berechnungen_dict["5"]["ECTS_absolviert"] = "0"
+            berechnungen_dict["5"]["ECTS_information"] = "0"
+            berechnungen_dict["5"]["ECTS_innovation"] = "0"
+            berechnungen_dict["5"]["ECTS_sozial"] = "0"
+            berechnungen_dict["5"]["ECTS_ux"] = "0"
+            berechnungen_dict["5"]["faecher_bestanden"] = "Ja"
+
+            berechnungen_dict["6"]["ECTS_absolviert"] = "0"
+            berechnungen_dict["6"]["ECTS_information"] = "0"
+            berechnungen_dict["6"]["ECTS_innovation"] = "0"
+            berechnungen_dict["6"]["ECTS_sozial"] = "0"
+            berechnungen_dict["6"]["ECTS_ux"] = "0"
+            berechnungen_dict["6"]["faecher_bestanden"] = "Ja"
+
+    with open("Speicher_ECTS.json", "w") as f:
+        json.dump(berechnungen_dict, f, indent=4, separators=(",", ":"), sort_keys=True)
     return render_template("index.html")
 
 
@@ -20,7 +69,7 @@ def berechnungen():
 def resultat():
     b = open("Speicher_ECTS.json")
     berechnungen_dict = json.load(b)
-
+    # enfängt die Daten von der HTML Datei und sendet die werte in den json Dictionary
     if request.method == "POST" and request.form.get("submit_button") == "Senden":
         semester = request.form["semester"]
 
@@ -40,15 +89,15 @@ def resultat():
         berechnungen_dict[semester]["semester"] = semester
         berechnungen_dict[semester]["faecher_bestanden"] = faecher_bestanden
 
+#Ab dem 5 Semester ist es nicht mehr möglich das Studium im normalen Zeitraum zu Beenden
         with open("Speicher_ECTS.json", "w") as f:
             json.dump(berechnungen_dict, f, indent=4, separators=(",", ":"), sort_keys=True)
         if berechnungen_dict[semester]["faecher_bestanden"] != "Nein":
             bestanden = "Du hast die Möglichkeit dein Studium im geplanten Zeitraum Abzuschliessen"
         elif int(berechnungen_dict[semester]["semester"]) < int(5):
-                bestanden = "Du hast die Möglichkeit dein Studium im geplanten Zeitraum Abzuschliessen"
+            bestanden = "Du hast die Möglichkeit dein Studium im geplanten Zeitraum Abzuschliessen"
         else:
             bestanden = "Du kannst dein Studium nicht im geplanten Zeitraum Abschliessen"
-
 
     return render_template("Resultat.html", bestanden=bestanden, ux=berechnungen_dict[semester]["ECTS_ux"],
                            insgesamt=berechnungen_dict[semester]["ECTS_absolviert"],
@@ -68,27 +117,29 @@ def semesteruebersicht():
     b = open("Speicher_ECTS.json")
     berechnungen_dict = json.load(b)
     semester_output1 = ()
-
+# Berechnungen für die Übersicht
     it = int(20) - (
-                int(berechnungen_dict["1"]["ECTS_information"]) + int(berechnungen_dict["2"]["ECTS_information"]) + int(
-            berechnungen_dict["3"]["ECTS_information"]) + int(berechnungen_dict["4"]["ECTS_information"]) + int(
-            berechnungen_dict["5"]["ECTS_information"]) + int(berechnungen_dict["6"]["ECTS_information"]))
+            int(berechnungen_dict["1"]["ECTS_information"]) + int(berechnungen_dict["2"]["ECTS_information"]) + int(
+        berechnungen_dict["3"]["ECTS_information"]) + int(berechnungen_dict["4"]["ECTS_information"]) + int(
+        berechnungen_dict["5"]["ECTS_information"]) + int(berechnungen_dict["6"]["ECTS_information"]))
     if it < 0:
         it = 0
     di = int(20) - (
-                int(berechnungen_dict["1"]["ECTS_innovation"]) + int(berechnungen_dict["2"]["ECTS_innovation"]) + int(
-            berechnungen_dict["3"]["ECTS_innovation"]) + int(berechnungen_dict["4"]["ECTS_innovation"]) + int(
-            berechnungen_dict["5"]["ECTS_innovation"]) + int(berechnungen_dict["6"]["ECTS_innovation"]))
+            int(berechnungen_dict["1"]["ECTS_innovation"]) + int(berechnungen_dict["2"]["ECTS_innovation"]) + int(
+        berechnungen_dict["3"]["ECTS_innovation"]) + int(berechnungen_dict["4"]["ECTS_innovation"]) + int(
+        berechnungen_dict["5"]["ECTS_innovation"]) + int(berechnungen_dict["6"]["ECTS_innovation"]))
     if di < 0:
         di = 0
-    ux = int(20) - (int(berechnungen_dict["1"]["ECTS_ux"]) + int(berechnungen_dict["2"]["ECTS_ux"]) + int(berechnungen_dict["3"]["ECTS_ux"]) + int(berechnungen_dict["4"]["ECTS_ux"]) + int(berechnungen_dict["5"]["ECTS_ux"]) + int(berechnungen_dict["6"]["ECTS_ux"]))
+    ux = int(20) - (int(berechnungen_dict["1"]["ECTS_ux"]) + int(berechnungen_dict["2"]["ECTS_ux"]) + int(
+        berechnungen_dict["3"]["ECTS_ux"]) + int(berechnungen_dict["4"]["ECTS_ux"]) + int(
+        berechnungen_dict["5"]["ECTS_ux"]) + int(berechnungen_dict["6"]["ECTS_ux"]))
     if ux < 0:
         ux = 0
 
     it_1 = int(8) - (
-                int(berechnungen_dict["1"]["ECTS_information"]) + int(berechnungen_dict["2"]["ECTS_information"]) + int(
-            berechnungen_dict["3"]["ECTS_information"]) + int(berechnungen_dict["4"]["ECTS_information"]) + int(
-            berechnungen_dict["5"]["ECTS_information"]) + int(berechnungen_dict["6"]["ECTS_information"]))
+            int(berechnungen_dict["1"]["ECTS_information"]) + int(berechnungen_dict["2"]["ECTS_information"]) + int(
+        berechnungen_dict["3"]["ECTS_information"]) + int(berechnungen_dict["4"]["ECTS_information"]) + int(
+        berechnungen_dict["5"]["ECTS_information"]) + int(berechnungen_dict["6"]["ECTS_information"]))
     if it_1 < 0:
         it_1 = 0
     di_1 = int(20) - (
@@ -107,7 +158,7 @@ def semesteruebersicht():
         berechnungen_dict["5"]["ECTS_sozial"]) + int(berechnungen_dict["6"]["ECTS_sozial"]))
     if sz < 0:
         sz = 0
-
+# Methode zur generierung der Daten für die Tabelle
     for semester in berechnungen_dict:
         semester_output2 = ((berechnungen_dict[semester]["semester"], berechnungen_dict[semester]["ECTS_information"],
                              berechnungen_dict[semester]["ECTS_sozial"], berechnungen_dict[semester]["ECTS_ux"],

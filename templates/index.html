@@ -21,16 +21,24 @@
 		Dies kannst du  für jedes Semester einzel machen. <p> </p>
 		Hast du das aktuelle Semester eingetragen, bekommst du eine Zussammenfassung bezüglich des Semesters. Auf der letzten Seite giebt es eine Tabelle die dein Studium Zusammenfast.
 		Auch wirst du darüber Informiert wie viele ECTS du in den Wahlpflichtmodulen noch absolvieren musst, um einen Major zu erhalzten.
-		Des weiteren  wirst du darüber informiert wie viele ECTS du in den Vertiefungen noch mindestens absolviern musst um das Studium zu beenden.
+		Des weiteren  wirst du darüber informiert wie viele ECTS du in den Vertiefungen noch mindestens absolviern musst, um das Studium zu beenden.
 		<p> </p>
 		In den Vertiefungen Information Technology, User Experience und Digital Innovation benötigst du mindestens 8 ECTS um das Studium zu beenden..
 		Ab 20 ECTS erhälts du einen Major in dieser vertiefung.
 		<p> </p>
-		In der Vertiefung Sozial- und Methodenkompetenz kannst du keinen Major machen. Du benöttigts auch lediglich 4 ECTS um das Studium zu Beenden.</h3>
+		In der Vertiefung Sozial- und Methodenkompetenz kannst du keinen Major machen. Du benöttigts auch lediglich 4 ECTS um das Studium zu Beenden.
+		<p> </p>
+		Mit dem Knopf "Resultate Zurücksetzten", kannst du alle gespeicherte Werte löschen. </h3>
 
 		<form action="{{ url_for('berechnungen')}}">
 		 <div class="form-group m-3">
     <input type="submit" class="btn btn-primary" name="button_name" value="Zum ECTS Rechner">
+		 </div>
+			 </form>
+
+		<form method="POST">
+		 <div class="form-group m-3">
+    <input type="submit" class="btn btn-primary" name="button_name" value="Resultate Zurücksetzen">
 		 </div>
 			 </form>
 
