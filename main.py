@@ -4,8 +4,6 @@ from flask import render_template
 from flask import request
 import plotly.graph_objects as go
 
-
-
 app = Flask("Hello World")
 
 
@@ -72,7 +70,7 @@ def berechnungen():
 def resultat():
     b = open("Speicher_ECTS.json")
     berechnungen_dict = json.load(b)
-    # enfängt die Daten von der HTML Datei und sendet die werte in den json Dictionary
+    # enfängt die Werte von der HTML Datei und sendet die werte in den json Dictionary
     if request.method == "POST" and request.form.get("submit_button") == "Senden":
         semester = request.form["semester"]
 
@@ -145,13 +143,13 @@ def semesteruebersicht():
         berechnungen_dict["5"]["ECTS_information"]) + int(berechnungen_dict["6"]["ECTS_information"]))
     if it_1 < 0:
         it_1 = 0
-    di_1 = int(20) - (
+    di_1 = int(8) - (
             int(berechnungen_dict["1"]["ECTS_innovation"]) + int(berechnungen_dict["2"]["ECTS_innovation"]) + int(
         berechnungen_dict["3"]["ECTS_innovation"]) + int(berechnungen_dict["4"]["ECTS_innovation"]) + int(
         berechnungen_dict["5"]["ECTS_innovation"]) + int(berechnungen_dict["6"]["ECTS_innovation"]))
     if di_1 < 0:
         di_1 = 0
-    ux_1 = int(20) - (int(berechnungen_dict["1"]["ECTS_ux"]) + int(berechnungen_dict["2"]["ECTS_ux"]) + int(
+    ux_1 = int(8) - (int(berechnungen_dict["1"]["ECTS_ux"]) + int(berechnungen_dict["2"]["ECTS_ux"]) + int(
         berechnungen_dict["3"]["ECTS_ux"]) + int(berechnungen_dict["4"]["ECTS_ux"]) + int(
         berechnungen_dict["5"]["ECTS_ux"]) + int(berechnungen_dict["6"]["ECTS_ux"]))
     if ux_1 < 0:
@@ -184,9 +182,6 @@ def semesteruebersicht():
                            ux_1=ux_1,
                            sz=sz,
                            )
-
-
-
 
 
 @app.route("/plotly", methods=["GET", "POST"])

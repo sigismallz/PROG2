@@ -1,28 +1,28 @@
 {
     "1":{
-        "ECTS_absolviert":"35",
-        "ECTS_information":"11",
-        "ECTS_innovation":"4",
-        "ECTS_sozial":"11",
-        "ECTS_ux":"3",
+        "ECTS_absolviert":"0",
+        "ECTS_information":"0",
+        "ECTS_innovation":"0",
+        "ECTS_sozial":"0",
+        "ECTS_ux":"0",
         "faecher_bestanden":"Ja",
         "semester":"1"
     },
     "2":{
-        "ECTS_absolviert":"40",
+        "ECTS_absolviert":"0",
         "ECTS_information":"0",
-        "ECTS_innovation":"4",
-        "ECTS_sozial":"3",
-        "ECTS_ux":"4",
-        "faecher_bestanden":"Nein",
+        "ECTS_innovation":"0",
+        "ECTS_sozial":"0",
+        "ECTS_ux":"0",
+        "faecher_bestanden":"Ja",
         "semester":"2"
     },
     "3":{
-        "ECTS_absolviert":"11",
-        "ECTS_information":"11",
+        "ECTS_absolviert":"0",
+        "ECTS_information":"0",
         "ECTS_innovation":"0",
-        "ECTS_sozial":"11",
-        "ECTS_ux":"3",
+        "ECTS_sozial":"0",
+        "ECTS_ux":"0",
         "faecher_bestanden":"Ja",
         "semester":"3"
     },
